@@ -1,0 +1,48 @@
+.container-fluid{
+  background-color: black;
+  width: 100%;
+  height: 100%; 
+}
+
+.navbar{
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+}
+
+.netflix-card {
+  width: 200px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.netflix-card:hover {
+  transform: scale(1.05);
+}
+
+.overlay-info {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  overflow-y: auto;
+  cursor: pointer;
+}
+
+.netflix-card:hover .overlay-info {
+  opacity: 1;
+}
+.main{
+  background-color: black;
+}
