@@ -1,16 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import SearchBar from './component/SearchBar'
+import {BrowserRouter, Routes,Route}from "react-router-dom"
+import DefaultLayout from './layout/DefaultLayout'
+import HomePage from './component/HomePage'
+import ListContext from './Context/Context'
+import { useState } from 'react'
 
 function App() {
-  
+  const [filmList, setFilmList] = useState([]);
 
   return (
     <>
-      <SearchBar/>
-        
+    <ListContext.Provider value={{ filmList, setFilmList }}>
+        <BrowserRouter>
+          <Routes>
+            <Route Component={DefaultLayout}>
+              <Route path='/' Component={HomePage}></Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+    </ListContext.Provider>
     </>
   )
 }
