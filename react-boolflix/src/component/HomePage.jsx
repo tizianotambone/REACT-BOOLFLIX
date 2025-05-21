@@ -47,9 +47,10 @@ function HomePage() {
               key={film.id}
               className="netflix-card position-relative text-white"
               style={{
-                backgroundImage: `url(https://image.tmdb.org/t/p/w342${film.poster_path})`,
+              backgroundImage: `url(https://image.tmdb.org/t/p/w342${film.poster_path})`,
               }}
             >
+              <img src={film.poster_path === null ? '/img/noimg.jpg' : `url(https://image.tmdb.org/t/p/w342${film.poster_path})`} alt="" className='noimg' />
               <div className="overlay-info p-3">
                 <h5>{film.title || film.name}</h5>
                 <p>Titolo originale: {film.original_title || film.original_name}</p>
@@ -58,7 +59,7 @@ function HomePage() {
                   <ReactCountryFlag
                     countryCode={languageToCountryCode[film.original_language]}
                     svg
-                    style={{ width: '5px', height: '5px' }}
+                    style={{ width: '20px', height: '20px' }}
                   />
                 </p>
                 <p>Voto: {renderStars(film.vote_average)}</p>
